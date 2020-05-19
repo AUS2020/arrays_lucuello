@@ -1,0 +1,28 @@
+#include <stdio.h>
+#define N 10
+
+int main() {
+	float A[N];
+	float suma = 0;
+	float promedio;
+	int mayores = 0;
+	
+	for ( int i = 0 ; i < N; i++) {
+		printf("Ingrese el valor %d de %d: ", i+1, N);
+		scanf("%f", &A[i]);
+	}
+	printf("\n");
+	
+	for (int i = 0; i < N; i++) {
+		suma += A[i];
+	}
+	promedio= suma/N;
+	for (int i = 0; i < N; i++) {
+		if ( A[i] > promedio ) {
+			mayores += 1;
+		}
+	}	
+	printf("Promedio = %3.2f\n", promedio);
+	printf("De los %d numeros ingresados %d superan el promedio\n", N, mayores);
+	return 0;
+}
