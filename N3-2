@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#define MAX 100
+
+int main(void) {
+    int M, N;
+    
+	printf("GENERACION AUTOMATICA DE UNA MATRIZ\n");
+	printf("\nIngrese la cantidad de filas: ");
+	scanf("%d", &M);
+	if (M<=0) {
+		do {
+			printf("\nEl valor ingresado debe ser mayor que 0.\nIngrese la cantidad de filas: ");
+			scanf("%d", &M);
+		} while(M<=0);
+	}
+	
+	printf("\nIngrese la cantidad de columnas: ");
+	scanf("%d", &N);
+	if (N<=0) {
+		do {
+			printf("\nEl valor ingresado debe ser mayor que 0.\nIngrese la cantidad de columnas: ");
+			scanf("%d", &N);
+		} while(N<=0);
+	}
+
+	srand(getpid());
+	
+    int A[M][N];	
+	
+	for(int i=0; i<M; i++) {
+	   for(int j=0; j<N; j++) {
+		   A[i][j]=rand()%(MAX+1);
+	   }
+	}
+	printf("\nMatriz automatica de dimension %d x %d: \n \n", M, N);
+	for(int i=0; i<M; i++) {
+		for(int j=0; j<N; j++) {
+	    printf("%3.d ",A[i][j]);
+	}
+	printf("\n");
+	}
+	
+	return 0;
+}
