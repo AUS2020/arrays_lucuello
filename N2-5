@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#define N 10
+#define MAX 100
+
+int main() {
+	int A[N];
+	int B[N]; //B es la matriz donde guardaremos los valores intercambiados
+	int r;
+	
+    srand(getpid());
+	for(int i=0; i<N; i++) {
+		A[i]=rand()%(MAX+1);
+	}
+
+	printf(	"Matriz A:\n");
+	for(int i = 0; i < N; i++){
+		printf(" %d ", A[i]);
+	}	
+	printf("\n");
+		
+	printf("Ingrese un valor r entre %d y %d para realizar rotaciones de A: ", -(N-1), N-1);
+	scanf("%d", &r);
+	if ((r<-(N-1)) || (r>N-1)) {
+		do {
+		printf("\n");
+		printf("Asegurese que el valor ingresado es mayor que %d y menor que %d.\nIngrese nuevamente: ", -(N-1), N-1);
+		scanf("%d", &r);
+		} while ((r<-(N-1)) || (r>N-1));
+	}
+	     for (int i = 0; i <N; i++) { 
+			B[i]= A[(i+(N-r))%N]; //rotacion utilizando transformación por funcion modulo
+		}
+	printf(	"\n");
+	if (r==0) {	
+	printf(	"Matriz A sin rotacion, r=0");
+	}
+	else if (r > 0) {
+	printf(	"Matriz A con %d rotaciónes a la derecha:\n", r);	
+	}
+	else {
+		printf(	"Matriz A con %d rotaciónes a la izquierda:\n", r);
+	}
+	
+	for(int i = 0; i < N; i++){
+	printf(" %d ", B[i]);
+}
+	return 0; }
