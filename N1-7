@@ -1,0 +1,56 @@
+#include <stdio.h>
+#define X 10
+int main() {
+	int M[X];
+	int N[X]; 
+	int igualdad = 0;
+	int sumaM=0;
+	int sumaN=0;
+	
+	printf("Compararemos dos matrices M y N para saber si son iguales, semejantes frente a la suma o diferentes\n");
+	printf("\n");
+	printf("Ingrese %d valores entre 0 y 50 para definir su matriz M\n", X);
+	
+	for (int i = 0; i<X; i++){
+	printf("Ingrese el valor %d de %d: ", (i+1), X);
+	scanf(" %d", &M[i]); 
+	 if ((M[i]>50) || (M[i]<0)) {
+		do {
+			printf("El valor ingresado debe ser mayor que 0 y menor que 50 \n");
+			printf("Ingrese nuevamente el valor %d de %d: ", (i+1), X);
+			scanf(" %d", &M[i]); 
+		} while((M[i]>50) || (M[i]<0));
+	  }
+	}
+	printf("\n");
+	printf("Ingrese %d valores entre 0 y 50 para definir su matriz N\n", X);
+	
+	for (int i = 0; i<X; i++){
+		printf("Ingrese el valor %d de %d: ", (i+1), X);
+		scanf(" %d", &N[i]); 
+		if ((N[i]>50) || (N[i]<0)) {
+			do {
+				printf("El valor ingresado debe ser mayor que 0 y menor que 50 \n");
+				printf("Ingrese nuevamente el valor %d de %d: ", (i+1), X);
+				scanf(" %d", &N[i]); 
+			} while((N[i]>50) || (N[i]<0));
+		}
+	}
+	
+	for (int i = 0; i<X; i++) {
+		sumaM += M[i];
+		sumaN += N[i];
+		if (M[i] == N[i]) {
+			igualdad += 1;
+		}
+	}
+	printf("\n");
+	if (igualdad == X) {
+		printf("Las matrices M y N son iguales\n");
+	}
+	else if ((igualdad != X) && (sumaM==sumaN)) {
+		printf("Las matrices M y N son semejantes frente a la suma\n");
+	}
+	else {printf("Las matrices M y N son diferentes");};
+	return 0;
+}
