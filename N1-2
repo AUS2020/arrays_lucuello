@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main () {
+	int A[4], B[4], S[4];
+	printf("Ingrese 5 valores separados por un espacio para definir la matriz A: \n");
+	for (int i = 0; i <= 4; i++) {
+		scanf("%d" , &A[i]);}
+	printf("Ingrese 5 valores separados por un espacio para definir la matriz B: \n");
+	for (int i = 0; i <= 4; i++) {
+		scanf("%d" , &B[i]); }
+	for (int i = 0; i <= 4; i++) {
+		S[i]= A[i]+B[i];
+	}
+	printf("La suma de las matrices A y B es: \n");
+	for (int i = 0; i <= 4; i++) {
+		printf("%d " , S[i]);
+	}
+	return 0; }
