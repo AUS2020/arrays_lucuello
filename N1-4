@@ -1,0 +1,32 @@
+#include <stdio.h>
+#define N 5
+
+int main() {
+	float A[N];
+	float F;
+	float P[N];
+	
+	for ( int i = 0 ; i < N; i++) {
+		printf("Ingrese el valor %d de %d: ", i+1, N);
+		scanf("%f", &A[i]);
+	}
+	printf("\n");
+	do {
+		printf("Ingrese un nro real comprendido en (0,100]: ");
+		scanf("%f", &F); 
+	} while ((F<=0) || (F>100));
+	for ( int i = 0 ; i < N; i++) {
+		P[i]=A[i]*F;
+	}
+	printf("\n");
+	printf("la matriz A = \n", F);
+	for ( int i = 0 ; i < N; i++) {
+		printf(" %3.2f \n", A[i]);
+	}
+	printf("\n");
+	printf("la matriz A x %3.2f = P = \n", F);
+	for ( int i = 0 ; i < N; i++) {
+		printf(" %3.2f \n", P[i]);
+	}
+	return 0;
+}
