@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#define N 10
+
+
+
+int main() {
+	
+	srand(getpid());
+	
+	int A[N];
+	int B[N];
+	int pares_a=0;
+	int pares_b=0;
+	
+	 for (int i = 0; i<N; i++){
+	 A[i] = rand();
+	 B[i]= rand();
+	 if (A[i] % 2 == 0)  {
+		 pares_a += 1;
+	 }
+	 if (B[i] % 2 == 0) {
+		 pares_b += 1;
+	 }
+	 }
+	 
+	printf(" A \t B \n");
+	 for (int i = 0 ; i<N; i++){
+	printf(" %d \t %d \n", A[i], B[i]);
+	 }
+	 printf("\n");
+	 printf("La matriz A contiene %d numeros pares\n", pares_a);
+	 printf("La matriz B contiene %d numeros pares", pares_b); 
+	 
+	return 0;
+}
