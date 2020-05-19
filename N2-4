@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#define N 10
+#define MAX 100
+
+int main() {
+	
+	srand(getpid());
+	
+	int A[N];
+	int B[N];
+	int j=N-1; 
+	for (int i = 0; i<N; i++){
+		A[i] = rand()%(MAX+1);
+		B[j]= A[i];
+		j--;
+	}	
+	printf(" A = ");
+	for (int i = 0; i<N; i++){
+		printf("%d ", A[i]);
+	}	
+	
+	printf("\n \n");
+	printf(" A invertida con printf = ");
+	for (int i = N-1; i>=0; i--){
+		printf("%d ", A[i]);
+	}
+	
+	printf("\n \n");
+	printf(" A invertida con pivote = ");
+	for (int i = 0; i<N; i++){
+		printf("%d ", B[i]);
+	}
+	
+	return 0;
+}
