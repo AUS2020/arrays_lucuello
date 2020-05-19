@@ -6,22 +6,23 @@
 
 int main() {
 	int A[N];
-	int B[N]; //B es la matriz donde guardaremos los valores intercambiados
+	int B[N]; //B es el array donde guardaremos los valores intercambiados
 	int r;
 	
     srand(getpid());
 	for(int i=0; i<N; i++) {
-		A[i]=rand()%(MAX+1);
+		A[i]=rand()%(MAX+1); //generacion de la matriz aleatorio
 	}
 
 	printf(	"Matriz A:\n");
-	for(int i = 0; i < N; i++){
+	for(int i = 0; i < N; i++){ //mostramos la matriz original
 		printf(" %d ", A[i]);
 	}	
 	printf("\n");
 		
 	printf("Ingrese un valor r entre %d y %d para realizar rotaciones de A: ", -(N-1), N-1);
-	scanf("%d", &r);
+	scanf("%d", &r);  //pedimos el valor r y luego nos aseguramos que este en el rango correcto
+	
 	if ((r<-(N-1)) || (r>N-1)) {
 		do {
 		printf("\n");
@@ -29,10 +30,12 @@ int main() {
 		scanf("%d", &r);
 		} while ((r<-(N-1)) || (r>N-1));
 	}
+	
 	     for (int i = 0; i <N; i++) { 
 			B[i]= A[(i+(N-r))%N]; //rotacion utilizando transformación por funcion modulo
 		}
-	printf(	"\n");
+		
+	printf(	"\n");  //indicamos la rotacion realizada
 	if (r==0) {	
 	printf(	"Matriz A sin rotacion, r=0");
 	}
@@ -44,6 +47,6 @@ int main() {
 	}
 	
 	for(int i = 0; i < N; i++){
-	printf(" %d ", B[i]);
-}
+	printf(" %d ", B[i]);  //mostramos la matriz con los elementos rotados
+        }
 	return 0; }
