@@ -1,0 +1,37 @@
+#include <stdio.h>
+#define N 10
+
+int main() {
+	float A[N];
+	float suma=0;
+	float promedio = 0;
+	float varianza = 0;	
+	printf("Ingrese %d numeros entre 0 y 100 para conocer su suma, promedio y varianza.\n", N);
+	
+	for ( int i = 0; i<N; i++) {
+		printf("Ingrese el numero %d de %d: ", i+1, N);
+		scanf("%f",&A[i]);
+		if ( (A[i]>100) || (A[i]<0)) {
+			do {
+			printf("El numero debe ser mayor que 0 y menor que 100.\nIngrese nuevamente: ");
+			scanf("%f",&A[i]); } while ((A[i]>100) || (A[i]<0));
+		}
+	}
+	
+	for ( int i = 0; i<N; i++) {
+		suma = suma + A[i];
+	}
+	printf("\n");
+	printf("La suma de los numeros es: %3.2f\n", suma);
+	
+	promedio = suma/N;
+	printf("El promedio de los numeros es: %3.2f\n", promedio);
+	
+	for ( int i = 0; i<N; i++) {
+		varianza += (A[i]-promedio)*(A[i]-promedio);
+	}
+	varianza = varianza/N;
+	printf("La varianza de los numeros es: %3.2f\n", varianza);
+	
+	return 0;
+}
