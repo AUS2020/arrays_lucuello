@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#define MAX 100
+#define N 5
+
+int main(void) {
+   
+	srand(getpid());
+	
+    int X[N][N];
+	int Y[N][N];
+	int suma[N][N];
+	
+	for(int i=0; i<N; i++) {
+	   for(int j=0; j<N; j++) {
+		   X[i][j]=rand()%(MAX+1);
+		   Y[i][j]=rand()%(MAX+1);
+		   suma[i][j]=X[i][j]+Y[i][j];
+	   }
+	}
+	
+	printf("\nMATRIZ X: \n \n");
+	for(int i=0; i<N; i++) {
+		for(int j=0; j<N; j++) {
+	    printf("%3.d ",X[i][j]);
+	}
+	printf("\n");
+	}
+	
+	printf("\nMATRIZ Y: \n \n");
+	for(int i=0; i<N; i++) {
+		for(int j=0; j<N; j++) {
+			printf("%3.d ",Y[i][j]);
+		}
+		printf("\n");
+	}
+	
+	printf("\nSUMA X+Y: \n \n");
+	for(int i=0; i<N; i++) {
+		for(int j=0; j<N; j++) {
+			printf("%3.d ",suma[i][j]);
+		}
+		printf("\n");
+	}
+
+	return 0;
+}
